@@ -1,0 +1,5 @@
+setwd('~/Dropbox/Westneat_Lab/Lethrinids/')
+library('rfishbase')
+sparids <- species_list(Family = 'Sparidae')
+sparidCOI <- as.character(read.csv('./Data/Sparid_Public_COI.csv')[,1])
+write.csv(x=sparids[(sparids %in% sparidCOI) == FALSE], file = './BOLD_nonPublic_Sparids.csv')
